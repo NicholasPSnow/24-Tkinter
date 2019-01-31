@@ -3,8 +3,8 @@ This project lets you try out Tkinter/Ttk and practice it!
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Nicholas Snow.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import tkinter
 from tkinter import ttk
@@ -13,37 +13,57 @@ from tkinter import ttk
 def main():
     """ Constructs a GUI with stuff on it. """
     # -------------------------------------------------------------------------
-    # TODO: 2. After reading and understanding the m1e module,
+    # Done: 2. After reading and understanding the m1e module,
     #   ** make a window that shows up. **
     # -------------------------------------------------------------------------
+    root=tkinter.Tk()
+    root.title("Is this needed?")
 
     # -------------------------------------------------------------------------
-    # TODO: 3. After reading and understanding the m2e module,
+    # Done: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # -------------------------------------------------------------------------
-
+    frame1=ttk.Frame(root, padding=20)
+    frame1.grid()
     # -------------------------------------------------------------------------
-    # TODO: 4. After reading and understanding the m2e module,
+    # Done: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # -------------------------------------------------------------------------
+    button1=ttk.Button(frame1,text='Say Hello')
+    button1.grid(row=0,column=0)
 
     # -------------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # Done: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
+    button1['command']=lambda:print('Hello!')
 
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # Done!: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
     #        on the Console if the current string in the Entry box
     #        is the string 'ok', but print "Goodbye" otherwise.
     # -------------------------------------------------------------------------
+    entry1=ttk.Entry(frame1)
+    entry1.grid(row=0,column=1)
+
+    button3=ttk.Button(frame1,text="Entry is True?")
+    button3['command'] = lambda: print_contents(entry1)
+    button3.grid(row=0,column=2)
+
+    def print_contents(contents):
+        x=contents.get()
+        if x=='ok':
+            print('Hello')
+        else:
+            print('Goodbye')
+
 
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # Done: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -65,9 +85,18 @@ def main():
     #      s = entry_box.get()
     #      n = int(s)
     ####################################################################
+    entry2 = ttk.Entry(frame1)
+    entry2.grid(row=1,column=1)
+    button4=ttk.Button(frame1,text='Number of Prints:')
+    button4.grid(row=1,column=2)
+    button4['command']=lambda: newprint(entry1,entry2)
+    def newprint(contents1,contents2):
+       for k in range(int(contents2.get())):
+           print(contents1.get())
 
+    root.mainloop()
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # NAHHHHH: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
 
 
