@@ -61,18 +61,18 @@ def main():
     root.bind('<Down>', lambda event: print("Back key"))
 
     up_button = ttk.Button(main_frame, text="Up")
-    up_button.grid(row=1,column=2)
+    up_button.grid(row=5,column=1)
     up_button['command'] = lambda: print("Up button")
     root.bind('<u>', lambda event: print("Up key"))
 
     down_button = ttk.Button(main_frame, text="Down")
-    down_button.grid(row=5,column=2)
+    down_button.grid(row=6,column=1)
     down_button['command'] = lambda: print("Down button")
     root.bind('<j>', lambda event: print("Down key"))
 
     # Buttons for quit and exit
     q_button = ttk.Button(main_frame, text="Quit")
-    q_button.grid(row=6,column=1)
+    q_button.grid(row=5,column=3)
     q_button['command'] = lambda: print("Quit button")
 
     e_button = ttk.Button(main_frame, text="Exit")
